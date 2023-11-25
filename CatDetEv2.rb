@@ -3,15 +3,19 @@ models two neurons, Toward and Away, in the nervous system of ten animals.  Goal
 evolve through natural selection the ability to "categorize" stimuli as either small
 or large by moving Toward small, Away from large.  Because such behavior is adaptive,
 it will likely drive the evolution of neurons capable of such categorization. Postulate
-a 4x4 detector that produces a stimulus consisting of 1 to 16 lit elements in any pattern.
-This output is then sent to the two neurons in the "brain" of each animal.  Each animal
+a 4x4 detector that produces a stimulus (detectorStim) consisting of 1 to 16 lit elements in any pattern.
+This stimulus is then presented to a "counter" neural network that fires a different neuron
+depending on the number of lit elements in the detectorStim.
+This output is then sent to the two neurons in the "brain" of each of the ten animal.  Each animal
 brain produces an output (i.e., turn toward, turn away, do nothing) which constitutes a
 classifier, producing a confusion matrix in which each outcome can be assigned an
 adaptive value. The produced adaptive value is summed for both neurons producing fitness
-score for the "animal".  Through "natural selection" the animal with the brain that is
-the best classifer is replicated by replacing the worst animal.
-Excell wksht = categorization confusion matrix
-Adding counter back into CatDetEv1
+score for the animal.  Through "natural selection" the animal with the brain that is
+the best classifer is replicated by replacing the worst animal.  The simulation runs until
+one animal is capable of producing an exact adaptive response, that is, of turning towards a 
+"small" stimulus (1, 2, or 3 lit elements) and away from a "large" stimulus (14, 15, or 16 
+lit elements) and further, doesn't turn towards or away from stimuli neither small nor
+large [(4..13) lit elements.]
 =end
 require 'matrix'
 Stimmax=15 #size of stimulus vector
